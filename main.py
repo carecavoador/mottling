@@ -91,10 +91,7 @@ def process_folder(folder):
 
             img = load_image_gray(path)
             img = apply_roi(img, ROI)
-            
-            img_norm = img / np.mean(img)
-            
-            filtered = low_pass_filter(img_norm, GAUSSIAN_KERNEL, GAUSSIAN_SIGMA)
+            filtered = low_pass_filter(img, GAUSSIAN_KERNEL, GAUSSIAN_SIGMA)
 
             mean, std, mi = mottling_metrics(filtered)
 
