@@ -54,19 +54,19 @@ def mottling_metrics(img):
 
 def plot_results(original, filtered, name, mi):
     """Exibe resultados visuais"""
-    plt.figure(figsize=(12, 4))
+    plt.figure(figsize=(8, 4))
 
-    plt.subplot(1, 3, 1)
+    plt.subplot(1, 2, 1)
     plt.title("Imagem Original")
     plt.imshow(original, cmap='gray')
     plt.axis('off')
 
-    plt.subplot(1, 3, 2)
-    plt.title("Imagem Filtrada")
-    plt.imshow(filtered, cmap='gray')
-    plt.axis('off')
+    plt.subplot(1, 2, 2)
+    # plt.title("Imagem Filtrada")
+    # plt.imshow(filtered, cmap='gray')
+    # plt.axis('off')
 
-    plt.subplot(1, 3, 3)
+    # plt.subplot(1, 3, 3)
     diff = cv2.normalize(abs(filtered - np.mean(filtered)),
                           None, 0, 255, cv2.NORM_MINMAX)
     plt.title("Mapa de Não-Uniformidade")
@@ -109,5 +109,5 @@ def process_folder(folder):
 # ============================
 
 if __name__ == "__main__":
-    folder_path = r"C:\Users\erodr\src\mottling\Imagens\Testar"  # pasta com as imagens
+    folder_path = "Imagens/Testar"  # pasta com as imagens
     results = process_folder(folder_path)
