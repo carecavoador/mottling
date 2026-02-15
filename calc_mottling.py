@@ -1,6 +1,6 @@
 from pathlib import Path
 
-import mottling
+from mottling import mi_from_image
 
 # Gaussian blur parameters
 GAUSSIAN_KERNEL = (21, 21)
@@ -19,9 +19,7 @@ def process_folder(folder):
             continue
 
         if path.suffix.lower() in (".png", ".jpg", ".jpeg", ".tif", ".bmp"):
-            mean, std, mi = mottling.mi_from_image(
-                path, GAUSSIAN_KERNEL, GAUSSIAN_SIGMA
-            )
+            mean, std, mi = mi_from_image(path, GAUSSIAN_KERNEL, GAUSSIAN_SIGMA)
             results.append((path.name, mean, std, mi))
 
             print(
